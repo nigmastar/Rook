@@ -27,15 +27,10 @@ Brewery <- setRefClass(
             normalizePath(file.path(root,path),mustWork=TRUE),
             silent=TRUE
          )
-         print(paste('^',url,sep=''))
-         print(paste('^',url,'$',sep=''))
-         print(paste('^',root,url,sep=''))
-         print(file_path)
          if (!inherits(file_path, 'try-error') &&
              grepl(paste('^',url,sep=''),path) &&
              !grepl(paste('^',url,'$',sep=''),path) &&
-             grepl(paste('^',root,url,sep=''),file_path)){
-
+             grepl(paste0('^',normalizePath(paste0(root,url),winslash = "/")), normalizePath(file_path,winslash = "/"))){
             oldwd <- setwd(dirname(file_path))
             on.exit(setwd(oldwd))
             res$write(
