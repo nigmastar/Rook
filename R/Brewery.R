@@ -23,6 +23,7 @@ Brewery <- setRefClass(
          opt[['req']] <<- req
          opt[['res']] <<- res
          path <- env[["PATH_INFO"]]
+         print(path)
          file_path <- try(
             normalizePath(file.path(root,path),mustWork=TRUE),
             silent=TRUE
