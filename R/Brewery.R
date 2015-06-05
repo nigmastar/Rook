@@ -30,6 +30,7 @@ Brewery <- setRefClass(
          print(paste('^',url,sep=''))
          print(paste('^',url,'$',sep=''))
          print(paste('^',root,url,sep=''))
+         print(file_path)
          if (!inherits(file_path, 'try-error') &&
              grepl(paste('^',url,sep=''),path) &&
              !grepl(paste('^',url,'$',sep=''),path) &&
