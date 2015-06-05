@@ -30,7 +30,7 @@ Brewery <- setRefClass(
          if (!inherits(file_path, 'try-error') &&
              grepl(paste('^',url,sep=''),path) &&
              !grepl(paste('^',url,'$',sep=''),path) &&
-             grepl(paste('^',root,url,.Platform$file.sep,sep=''),file_path)){
+             grepl(paste('^',root,url,sep=''),file_path)){
 
             oldwd <- setwd(dirname(file_path))
             on.exit(setwd(oldwd))
