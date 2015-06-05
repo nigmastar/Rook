@@ -23,11 +23,13 @@ Brewery <- setRefClass(
          opt[['req']] <<- req
          opt[['res']] <<- res
          path <- env[["PATH_INFO"]]
-         print(path)
          file_path <- try(
             normalizePath(file.path(root,path),mustWork=TRUE),
             silent=TRUE
          )
+         print(paste('^',url,sep=''))
+         print(paste('^',url,'$',sep=''))
+         print(paste('^',root,url,sep=''))
          if (!inherits(file_path, 'try-error') &&
              grepl(paste('^',url,sep=''),path) &&
              !grepl(paste('^',url,'$',sep=''),path) &&
